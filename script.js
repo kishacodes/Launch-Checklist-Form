@@ -29,7 +29,33 @@ window.addEventListener("load", function () {
     } else if (isNaN(cargoMassInput) || isNaN(fuelLevelInput)) {
       alert("Fuel Level and Cargo Mass must be entered as numbers.");
     } else {
+      function updateInfo() {
+        document.getElementById(
+          "pilotStatus"
+        ).innerHTML = `Pilot ${pilotNameInput} is Ready`;
+        document.getElementById(
+          "copilotStatus"
+        ).innerHTML = `Pilot ${copilotNameInput} is Ready`;
+        if (fuelLevelInput < 10000) {
+          document.getElementById(
+            "fuelStatus"
+          ).innerHTML = `Shuttle not ready for launch`;
+          document.getElementById("fuelStatus").style.color = "red";
+        }
+      }
+      function updateCargo() {
+        if (cargoMassInput > 10000) {
+          document.getElementById(
+            "cargoStatus"
+          ).innerHTML = `Shuttle not ready for launch`;
+          document.getElementById("cargoStatus").style.color = "red";
+        }
+      }
       document.getElementById("faultyItems").style.visibility = "visible";
+      document.getElementById("cargoStatus").style.color = "green";
+      document.getElementById("fuelStatus").style.color = "green";
+      updateInfo();
+      updateCargo();
     }
   });
 });
