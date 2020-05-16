@@ -1,6 +1,8 @@
 // Write your JavaScript code here!
 //validate all text entries
-window.addEventListener("load", function () {
+window.addEventListener("DOMContentLoaded", function () {
+  const destination = document.getElementById("destination");
+  //Form validation and output upon submit
   let form = document.querySelector("form");
   form.addEventListener("submit", function (event) {
     event.preventDefault();
@@ -60,9 +62,31 @@ window.addEventListener("load", function () {
   });
 });
 
-// function process() {
-//   let pilotVar = document.form.pilotName.value;
-// }
+document.addEventListener("click", function () {
+  let json = [];
+  fetch("https://handlers.education.launchcode.org/static/planets.json").then(
+    function (response) {
+      response.json().then(function (json) {
+        const missionTarget = document.getElementById("missionTarget");
+        let index = 3;
+        missionTarget.addEventListener("load", function () {
+          missionTarget.innerHTML = `<div>
+  <h2>Mission Destination</h2>
+<ol>
+<li>Name: ${json[index].name}}</li>
+<li>Diameter: ${json[index].diameter}</li>
+<li>Star: ${json[index].star}</li>
+<li>Distance from Earth: ${json[index].distance}</li>
+<li>Number of Moons: ${json[index].moons}</li>
+</ol>
+<img src="${json[index].image}"></img>
+</div>
+`;
+        });
+      });
+    }
+  );
+});
 
 /* This block of code shows how to format the HTML once you fetch some planetary JSON!
 <h2>Mission Destination</h2>
