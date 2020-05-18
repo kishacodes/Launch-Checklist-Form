@@ -1,7 +1,7 @@
 // Write your JavaScript code here!
 //validate all text entries
+"use strict";
 window.addEventListener("DOMContentLoaded", function () {
-  const destination = document.getElementById("destination");
   //Form validation and output upon submit
   let form = document.querySelector("form");
   form.addEventListener("submit", function (event) {
@@ -16,6 +16,7 @@ window.addEventListener("DOMContentLoaded", function () {
     let copilotStatus = document.getElementById("copilotStatus").value;
     let fuelStatus = document.getElementById("fuelStatus").value;
     let cargoStatus = document.getElementById("cargoStatus").value;
+
     if (
       pilotNameInput === "" ||
       copilotNameInput === "" ||
@@ -60,17 +61,16 @@ window.addEventListener("DOMContentLoaded", function () {
       updateCargo();
     }
   });
-});
 
-document.addEventListener("click", function () {
   let json = [];
   fetch("https://handlers.education.launchcode.org/static/planets.json").then(
     function (response) {
       response.json().then(function (json) {
+        // const destination = document.getElementById("destination");
         const missionTarget = document.getElementById("missionTarget");
+        // missionTarget.addEventListener("load", function () {
         let index = 3;
-        missionTarget.addEventListener("load", function () {
-          missionTarget.innerHTML = `<div>
+        missionTarget.innerHTML += `<div>
   <h2>Mission Destination</h2>
 <ol>
 <li>Name: ${json[index].name}}</li>
@@ -82,12 +82,11 @@ document.addEventListener("click", function () {
 <img src="${json[index].image}"></img>
 </div>
 `;
-        });
+        // });
       });
     }
   );
 });
-
 /* This block of code shows how to format the HTML once you fetch some planetary JSON!
 <h2>Mission Destination</h2>
 <ol>
