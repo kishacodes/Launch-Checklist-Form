@@ -73,7 +73,7 @@ window.addEventListener("DOMContentLoaded", function () {
         missionTarget.innerHTML += `<div>
   <h2>Mission Destination</h2>
 <ol>
-<li>Name: ${json[index].name}}</li>
+<li>Name: ${json[index].name}</li>
 <li>Diameter: ${json[index].diameter}</li>
 <li>Star: ${json[index].star}</li>
 <li>Distance from Earth: ${json[index].distance}</li>
