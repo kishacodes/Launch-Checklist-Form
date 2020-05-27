@@ -43,7 +43,11 @@ window.addEventListener("DOMContentLoaded", function () {
           document.getElementById(
             "fuelStatus"
           ).innerHTML = `Shuttle not ready for launch`;
-          document.getElementById("fuelStatus").style.color = "red";
+          // document.getElementById("fuelStatus").style.color = "red";
+          document.getElementById(
+            "launchStatus"
+          ).innerHTML = `Shuttle Not Ready For Launch`;
+          document.getElementById("launchStatus").style.color = "red";
         }
       }
       function updateCargo() {
@@ -51,12 +55,19 @@ window.addEventListener("DOMContentLoaded", function () {
           document.getElementById(
             "cargoStatus"
           ).innerHTML = `Shuttle not ready for launch`;
-          document.getElementById("cargoStatus").style.color = "red";
+          // document.getElementById("cargoStatus").style.color = "red";
+          document.getElementById(
+            "launchStatus"
+          ).innerHTML = `Shuttle Not Ready For Launch`;
+          document.getElementById("launchStatus").style.color = "red";
         }
       }
       document.getElementById("faultyItems").style.visibility = "visible";
-      document.getElementById("cargoStatus").style.color = "green";
-      document.getElementById("fuelStatus").style.color = "green";
+      document.getElementById(
+        "launchStatus"
+      ).innerHTML = `Shuttle is Ready For Launch`;
+      document.getElementById("launchStatus").style.color = "green";
+      // document.getElementById("fuelStatus").style.color = "green";
       updateInfo();
       updateCargo();
     }
